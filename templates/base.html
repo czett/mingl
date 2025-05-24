@@ -44,7 +44,33 @@
                 </div>
             </div>
         </div>
-        <div class="chat"></div>
+        <div class="chat">
+            <div class="heading">
+                <h2>Lokaler Chat</h2>
+            </div>
+            <div class="chat-content">
+                {% for i in range(30) %}
+                    {% if i % 2 == 0 %}
+                        <div class="bubble own">
+                            <span class="msg-text">
+                                Hallo! Wie kann ich dir helfen?
+                            </span>
+                        </div>
+                    {% else %}
+                        <div class="bubble other">
+                            <span class="msg-text">
+                                Ich habe eine Frage zu deinem Service.
+                            </span>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="input-area">
+                <input type="text" placeholder="Gib deine Nachricht ein...">
+                    <span class="material-symbols-rounded">prompt_suggestion</span>
+                </input>
+            </div>
+        </div>
     </div>
 </body>
 </html>

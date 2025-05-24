@@ -12,6 +12,10 @@
     --pad: 2rem;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 ::selection {
     background-color: var(--ac1);
     color: var(--fg);
@@ -24,7 +28,7 @@ html, body {
     color: var(--fg);
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
 }
 
@@ -85,6 +89,8 @@ a{
     grid-template-columns: 25% 75%;
 }
 
+/* chats */
+
 .window .chats{
     padding: calc(1.5 * var(--pad)) var(--pad);
     box-sizing: border-box;
@@ -92,7 +98,7 @@ a{
     /* background-color: red; */
 }
 
-.window .chats .heading *{
+.window .chats .heading *, .window .chat .heading *{
     line-height: 100%;
     margin-top: 0;
 }
@@ -137,4 +143,99 @@ a{
 .window .chats .chat-list .chat-btn span.text{
     font-size: 1.1rem;
     font-weight: 500;
+}
+
+/* one chat bubbles and stuff */
+
+.window .chat .heading{
+    width: 100%;
+    border-bottom: 2px solid var(--border);
+    padding: calc(1.5 * var(--pad)) var(--pad);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window .chat {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    position: relative !important;
+    overflow: hidden;
+}
+
+.window .chat .heading h2{
+    margin: 0;
+    font-size: 2rem;
+}
+
+.window .chat .chat-content{
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 var(--pad);
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    padding-bottom: 8rem;
+    overflow-y: auto;
+}
+
+.window .chat .chat-content .bubble{
+    max-width: 70%;
+    width: fit-content;
+    padding: 1rem;
+    border-radius: calc(var(--brad) / 2);
+    margin-bottom: 1rem;
+    background-color: var(--border);
+}
+
+.window .chat .chat-content .bubble.own{
+    align-self: flex-end;
+}
+
+.window .chat .chat-content .bubble.other{
+    align-self: flex-start;
+}
+
+.window .chat .input-area{
+    position: fixed;
+    inset: auto 0 0 auto;
+    background-color: var(--bg);
+    border-top: 2px solid var(--border);
+    width: 75%;
+    padding: 0 var(--pad);
+    height: 8rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window .chat .input-area input{
+    background-color: transparent;
+    border: 1px solid var(--border);
+    padding: 1.5rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: calc(var(--brad) / 1.5);
+    width: 100%;
+    position: relative;
+    outline: none;
+    color: var(--fg);
+}
+
+.window .chat .input-area span{
+    position: absolute;
+    inset: 50% 3rem auto auto;
+    border-radius: 50%;
+    /* background: linear-gradient(70deg, var(--ac1), var(--ac2)); */
+    background: var(--ac1);
+    color: var(--fg);
+    padding: .75rem;
+    aspect-ratio: 1;
+    font-size: 1.75rem;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
