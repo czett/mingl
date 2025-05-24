@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root{
+    --bg: #121212;
+    --fg: #e0e0e0;
+    --fg2: #b0b0b0;
+    --ac1: #7563ee;
+    --ac2: #77e9de;
+    --border: rgba(255, 255, 255, 0.2);
+    --halftrans: rgba(60, 60, 60, 0.5);
+    --brad: 2rem;
+    --pad: 2rem;
+}
+
+::selection {
+    background-color: var(--ac1);
+    color: var(--fg);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--fg);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+*{
+    font-family: 'Outfit', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: var(--fg);
+}
+
+.logo{
+    display: flex;
+    overflow: hidden;
+    width: auto;
+    gap: .25rem;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo img{
+    width: 5rem;
+    aspect-ratio: 1;
+}
+
+.logo span{
+    font-size: 2rem;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 600;
+    color: var(--fg);
+}
+
+.background-circle{
+    position: absolute;
+    inset: 0 auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 40vw;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: linear-gradient(70deg, var(--ac1), var(--ac2));
+    /* box-shadow: 0 0 10px var(--fg); */
+}
+
+.window {
+    width: 65%;
+    height: 80%;
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    border-radius: var(--brad);
+    border: 3px solid var(--border);
+    overflow: hidden;
+    backdrop-filter: blur(40px);
+
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+.window .chats{
+    padding: calc(1.5 * var(--pad)) var(--pad);
+    box-sizing: border-box;
+    border-right: 2px solid var(--border);
+    /* background-color: red; */
+}
+
+.window .chats .heading *{
+    line-height: 100%;
+    margin-top: 0;
+}
+
+.window .chats .heading{
+    margin-bottom: 3vh;
+}
+
+.window .chats .chat-list{
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    width: 100%;
+}
+
+.window .chats .chat-list .chat-btn{
+    width: 100%;
+    border-radius: calc(var(--brad) / 2);
+    /* background-color: red; */
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    gap: 1.25rem;
+    justify-self: start;
+    align-items: center;
+    background-color: var(--halftrans);
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.window .chats .chat-list .chat-btn:hover{
+    filter: brightness(1.2);
+}
+
+.window .chats .chat-list .chat-btn .icon span{
+    background: linear-gradient(70deg, var(--ac1), var(--ac2));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.75rem;
+}
+
+.window .chats .chat-list .chat-btn span.text{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
